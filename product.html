@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SANDO - PRODUCT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Silkscreen:wght@400;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
 </head>
 <body>
     <!-- Header -->
@@ -26,17 +30,16 @@
 
     <main>
         <!-- Product Hero Section -->
-        <section class="product-hero">
-            <div class="product-hero-bg">
-                <img src="./assets/0f5c1de73b6f6106150dd583d5f68030591062e5.png" alt="Misty summer forest" class="bg-layer-1">
-                <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Overlay" class="bg-layer-2">
-                <div class="bg-gradient"></div>
+        <section class="prod-hero">
+            <div class="prod-hero-bg">
+                <img src="./assets/0f5c1de73b6f6106150dd583d5f68030591062e5.png" alt="Misty summer forest">
+                <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Overlay layer" class="overlay">
+                <div class="prod-hero-gradient"></div>
             </div>
-            
-            <div class="product-hero-content">
-                <p class="hero-meta">SAN:DO Summer Goods 2026</p>
-                <h1 class="hero-title">이 여름이 지나기 전에, 손에 쥘 수 있는 형태로.</h1>
-                <div class="hero-logo">
+            <div class="prod-hero-content">
+                <p class="h-meta">SAN:DO Summer Goods 2026</p>
+                <h1 class="h-title">이 여름이 지나기 전에, 손에 쥘 수 있는 형태로.</h1>
+                <div class="h-logo">
                     <img src="./assets/543a6762f60950fe3e85e857b11b350e498f0f59.png" alt="SANDO Logo">
                 </div>
                 <button class="btn-collect">Collect the Moment</button>
@@ -44,57 +47,59 @@
         </section>
 
         <!-- Product Problem Section (LOST ROMANCE) -->
-        <section class="product-problem">
-            <div class="product-problem-container">
-                <p class="problem-subtitle">LOST ROMANCE</p>
-                <p class="problem-meta-desc">모든 것이 너무 빨라진 세상, 우리는 멈춰 서서 노래합니다</p>
-                <h2 class="problem-title">Every summer fades.<br>So does the merch.</h2>
-                
-                <div class="problem-text-left">
-                    <p>좋아하는 아티스트의 굿즈인데 막상 받고 나면<br>어디 두어야 할지 모르겠습니다. 로고가 너무<br>크거나, 색이 생각보다 싸 보이거나, 결국 한 번<br>꺼내보고 다시 넣게 되는 물건.</p>
+        <section class="prod-problem">
+            <div class="prod-problem-container">
+                <div class="p-header">
+                    <span class="p-sub">LOST ROMANCE</span>
+                    <span class="p-meta">모든 것이 너무 빨라진 세상, 우리는 멈춰 서서 노래합니다</span>
                 </div>
-                <div class="problem-text-right">
-                    <p>SAN:DO는 그 문제에서 출발했습니다. 책상 위에 두고 싶은 것. 가방에 달고 싶은 것. 사진에 자연스럽게 담기는 것. <strong>굿즈가 아니라 오브제.</strong></p>
-                </div>
-                
-                <div class="vintage-tape-graphic">
-                    <img src="./assets/e24b43c8723f03f35e2521874c37699974aeeafe.png" alt="Vintage tape">
-                    <h3 class="tape-text">Bought it.<br>Boxed it.<br>Forgot it.</h3>
+                <div class="p-grid">
+                    <h2 class="p-title">EVERY SUMMER FADES.<br>SO DOES HE MERCH.</h2>
+                    <div class="p-text-left">
+                        <p>좋아하는 아티스트의 굿즈인데 막상 받고 나면<br>어디 두어야 할지 모르겠습니다. 로고가 너무<br>크거나, 색이 생각보다 싸 보이거나, 결국 한 번<br>꺼내보고 다시 넣게 되는 물건.</p>
+                    </div>
+                    <div class="p-text-right">
+                        <p>SAN:DO는 그 문제에서 출발했습니다. 책상 위에 두고 싶은 것. 가방에 달고 싶은 것. 사진에 자연스럽게 담기는 것.<br><strong>굿즈가 아니라 오브제.</strong></p>
+                    </div>
+                    <div class="p-polaroid">
+                        <img src="./assets/e24b43c8723f03f35e2521874c37699974aeeafe.png" alt="Vintage polaroids">
+                        <p class="p-polaroid-text">Bought it. Boxed it. Forgot it.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Features Bento Grid (How it works) -->
-        <section class="product-features">
-            <div class="features-bg">
-                <img src="./assets/0db8ee00f841c1a4d73f439235c188c990d31b74.png" alt="Background Grid">
+        <section class="prod-features">
+            <div class="prod-features-bg">
+                <img src="./assets/0db8ee00f841c1a4d73f439235c188c990d31b74.png" alt="Features Background">
             </div>
-            <div class="features-content">
-                <div class="features-header">
-                    <p class="features-meta">How it works</p>
+            <div class="prod-features-container">
+                <div class="f-header">
+                    <p class="f-meta">How it works</p>
                     <h2>SAN:DO 굿즈를 소장하는 3단계</h2>
                 </div>
-                <div class="features-grid">
+                <div class="f-cards">
                     <!-- Card 1 -->
-                    <div class="feature-card">
-                        <div class="icon-circle">
-                            <img src="./assets/08d0e38753e40133297ec7baf056feb76902c6db.png" alt="Icon 1" class="mask-icon">
+                    <div class="f-card">
+                        <div class="f-icon">
+                            <img src="./assets/08d0e38753e40133297ec7baf056feb76902c6db.png" alt="Icon Discover" style="filter: brightness(0) invert(1);">
                         </div>
                         <h3>발견</h3>
                         <p>창가에서, 가방 속에서, 책상 위에서 SAN:DO의 여름이 먼저 눈에 들어옵니다. 크리미 아이보리+소프트 민트.<br><strong>말하지 않아도 계절이 보입니다.</strong></p>
                     </div>
                     <!-- Card 2 -->
-                    <div class="feature-card">
-                        <div class="icon-circle">
-                            <img src="./assets/c31c5b6fe7ed250745d48049320b2f43e3fc1b10.svg" alt="Icon 2">
+                    <div class="f-card">
+                        <div class="f-icon">
+                            <img src="./assets/c31c5b6fe7ed250745d48049320b2f43e3fc1b10.svg" alt="Icon Memory">
                         </div>
                         <h3>기록</h3>
                         <p>필름 카메라로 오늘의 여름을 찍고 카세트 키링을 흔들며 걷고 엽서를 책상에 세워둡니다. SAN:DO의 물건은 쓸수록<br><strong>이 여름을 기억</strong>하게 합니다.</p>
                     </div>
                     <!-- Card 3 -->
-                    <div class="feature-card">
-                        <div class="icon-circle">
-                            <img src="./assets/3f9572f7a1e01d085c5cf55efbc9a6c4448af354.svg" alt="Icon 3">
+                    <div class="f-card">
+                        <div class="f-icon">
+                            <img src="./assets/3f9572f7a1e01d085c5cf55efbc9a6c4448af354.svg" alt="Icon Keep">
                         </div>
                         <h3>소장</h3>
                         <p>한정 수량, 재입고 없음. 이 여름이 끝나도 손 안에 남는 것. SAN:DO Summer<br><strong>2026은 딱 한 번만 만들어집니다.</strong></p>
@@ -104,44 +109,43 @@
         </section>
 
         <!-- Solution Section -->
-        <section class="product-solution">
-            <div class="solution-bg">
+        <section class="prod-solution">
+            <div class="prod-solution-bg">
                 <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Forest Background">
             </div>
-            <div class="solution-content">
-                <div class="solution-header">
+            <div class="prod-solution-container">
+                <div class="s-header">
                     <h2>SANDO<span>의 음악은</span><br><strong>팬들이 원하던 것</strong><span>을 그대로 담았습니다</span></h2>
                     <p>우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
                 </div>
-                
-                <div class="solution-grid">
-                    <div class="solution-item item-discover">
-                        <img class="solution-item-bg" src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" alt="Border">
-                        <div class="solution-item-content">
+                <div class="s-scatter-grid">
+                    <div class="s-item s-discover">
+                        <img src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" class="s-border-bg" alt="Border">
+                        <div class="s-content">
                             <h3>Discover</h3>
                             <h4>실물 색감 보장 컬러 카드 동봉</h4>
                             <p>화면과 실물 색상 차이를 없애기 위해 패키지 안에 실제 소재 샘플 카드를 함께 넣었습니다. 받기 전부터 색감을 확인할 수 있습니다.</p>
                         </div>
                     </div>
-                    <div class="solution-item item-explore">
-                        <img class="solution-item-bg" src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" alt="Border">
-                        <div class="solution-item-content">
+                    <div class="s-item s-explore">
+                        <img src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" class="s-border-bg" alt="Border">
+                        <div class="s-content">
                             <h3>Explore</h3>
                             <h4>자연광 / 실내광 비교 상세 페이지</h4>
                             <p>형광등 아래, 창가 햇빛 아래, 흐린 날 실내. 세가지 환경에서 찍은 실물 사진을 모두 공개합니다. 구매 전 이미 실물을 아는 것처럼.</p>
                         </div>
                     </div>
-                    <div class="solution-item item-archive">
-                        <img class="solution-item-bg" src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" alt="Border">
-                        <div class="solution-item-content">
+                    <div class="s-item s-archive">
+                        <img src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" class="s-border-bg" alt="Border">
+                        <div class="s-content">
                             <h3>Archive</h3>
                             <h4>로고 최소화 설계</h4>
                             <p>SAN:DO 로고는 렌즈캡 안쪽에만, 작고 조용하게. 굿즈 티 없이 일상 사진에 자연스럽게 담깁니다.</p>
                         </div>
                     </div>
-                    <div class="solution-item item-share">
-                        <img class="solution-item-bg" src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" alt="Border">
-                        <div class="solution-item-content">
+                    <div class="s-item s-share">
+                        <img src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" class="s-border-bg" alt="Border">
+                        <div class="s-content">
                             <h3>Share</h3>
                             <h4>오브제형 디자인</h4>
                             <p>창가에 두면 사진이 되는 카메라.<br>가방에 달면 포인트가 되는 키링.<br>책상에 세우면 인테리어가 되는 엽서. SNS에 올리고 싶어지는 물건을 만들었습니다.</p>
@@ -152,81 +156,67 @@
         </section>
 
         <!-- Scenario Section -->
-        <section class="product-scenario">
-            <div class="scenario-bg">
-                <img src="./assets/c4fcc49d529c900acb2fa9d8979faa7a58f330dd.png" alt="Girl smiling background">
-                <img src="./assets/0ff1df46b4c678da892bcd18316c9ffc3228aff6.png" alt="Girl smiling overlay" class="scenario-overlay">
+        <section class="prod-scenario">
+            <div class="prod-scenario-bg">
+                <img src="./assets/c4fcc49d529c900acb2fa9d8979faa7a58f330dd.png" class="sc-bg-1" alt="Girl smiling">
+                <img src="./assets/0ff1df46b4c678da892bcd18316c9ffc3228aff6.png" class="sc-bg-2" alt="Girl smiling overlay">
             </div>
-            
-            <div class="scenario-content">
-                <p class="scenario-meta">Scenario</p>
-                <div class="scenario-left">
-                    <h2>A SUMMER<br>MORNING WITH<br>SAN:DO</h2>
-                    <p>여름은 특별히 뭔가를 하려던 건 아니다.<br>창가에 SAN:DO 카메라를 두고 빛이 들어오는 <span>각도를 기다렸다.</span><br>나뭇잎 그림자가 아이보리 바디 위에 떨어졌을 때 <span>그냥 사진을 찍었다.</span></p>
+            <div class="prod-scenario-container">
+                <p class="sc-meta">Scenario</p>
+                <div class="sc-content-wrapper">
+                    <div class="sc-left">
+                        <h2>A SUMMER<br>MORNING WITH<br>SAN:DO</h2>
+                        <p>여름은 특별히 뭔가를 하려던 건 아니다.<br>창가에 SAN:DO 카메라를 두고 빛이 들어오는 <span>각도를 기다렸다.</span><br>나뭇잎 그림자가 아이보리 바디 위에 떨어졌을 때 <span>그냥 사진을 찍었다.</span></p>
+                    </div>
+                    <div class="sc-right">
+                        <p><span>카세트 키링은 편의점</span> 갈 때 달고 갔다. 친구가 "그거 뭐야" 하고 물어온다. <span>SANDO</span> 얘기를 처음으로 꺼낸다. 엽서는 따로 보내지 않았다.<br>책상 위에 세워두는 것만으로 충분했다. 소장한다는 게 이런 건가 싶었다. 서랍에서 소장만 하지 않아도 되는 굿즈. 그게 바로 SAN:DO 다.</p>
+                    </div>
                 </div>
-                <div class="scenario-right">
-                    <p><span>카세트 키링은 편의점</span> 갈 때 달고 갔다. 친구가 "그거 뭐야" 하고 물어온다. <span>SANDO</span> 얘기를 처음으로 꺼낸다. 엽서는 따로 보내지 않았다.<br>책상 위에 세워두는 것만으로 충분했다. 소장한다는 게 이런 건가 싶었다. 서랍에서 소장만 하지 않아도 되는 굿즈. 그게 바로 SAN:DO 다.</p>
-                </div>
-                
-                <div class="scenario-floating-images">
-                    <div class="float-img img1">
-                        <img src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Floating image 1">
-                    </div>
-                    <div class="float-img img2">
-                        <img src="./assets/7b08612e9f0141479c3007f3ac379183df6f0e6b.png" alt="Floating image 2">
-                    </div>
-                    <div class="float-img img3">
-                        <img src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Floating image 3">
-                    </div>
-                    <div class="float-img img4">
-                        <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Floating image 4">
-                    </div>
+                <div class="sc-floating-images">
+                    <img class="sc-img img-1" src="./assets/99226b4a8e0f1d6fab371812a6b1d540692d76a8.png" alt="Floating 1">
+                    <img class="sc-img img-2" src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Floating 2">
+                    <img class="sc-img img-3" src="./assets/7b08612e9f0141479c3007f3ac379183df6f0e6b.png" alt="Floating 3">
+                    <img class="sc-img img-4" src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Floating 4">
                 </div>
             </div>
         </section>
 
         <!-- CTA & Package Section -->
-        <section class="product-cta-section">
-            <div class="cta-top">
-                <div class="cta-meta">SAN:DO Summer Goods 2026</div>
-                <div class="cta-divider"></div>
-            </div>
-            
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2>FLEETING<br>SUMMER PACKAGE</h2>
-                    <p>3종 개별 구매 가능 / 패키지 세트 구매 가능 한정 수량 · 재입고 없음<br>배송 - 2026년 여름방학 시작 전 순차 출고</p>
+        <section class="prod-cta">
+            <div class="prod-cta-container">
+                <div class="c-meta-top">
+                    <p>SAN:DO Summer Goods 2026</p>
+                    <div class="c-line"></div>
                 </div>
-                <div class="cta-actions">
-                    <button class="btn-cta">패키지 구성 자세히 보기</button>
-                    <button class="btn-cta">지금 소장하기 <img src="./assets/61a35f6481a9813a54b1b77d275d8791fe1ab130.svg" alt="Arrow"></button>
+                <div class="c-meta-bottom">EST. 2026 / SANDO ENT. ®</div>
+                
+                <div class="c-content">
+                    <h2 class="c-title">FLEETING SUMMER PACKAGE</h2>
+                    <p class="c-desc">2개 이상 구매 시 15% 할인 + 한정 엽서 세트 증정. 재고 소진 시 마감. <br>에픽 - 2026년 여름 컬렉션 한정 캡슐 컬렉션.</p>
+                    <div class="c-actions">
+                        <button class="btn-primary">예약자 우선 구매권 받기</button>
+                        <button class="btn-primary" style="background:transparent; border:1px solid #436900; color:#436900;">구매 안내서 보기 ↗</button>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="cta-gallery">
-                <div class="gallery-item">
-                    <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 1">
+                
+                <div class="c-images">
+                    <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Camera 1">
+                    <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 2">
+                    <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape">
                 </div>
-                <div class="gallery-item">
-                    <img src="./assets/981a7edbcd268379f420bd9b40d620fa2efb7d45.png" alt="Camera 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Keyring">
-                </div>
-            </div>
-            
-            <div class="cta-bottom-meta">
-                <p>EST. 2026 / SANDO ENT. ®</p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-left">
                 <div class="footer-logo">SANDO</div>
-                <p class="footer-copyright">&copy; 2024 SANDO ENTERTAINMENT.<br>RECORDED IN THE SHADE OF A MIDSUMMER TREE.</p>
+                <div class="footer-copyright">
+                    © 2026 SANDO ENTERTAINMENT<br>
+                    RECOVERING THE MAGIC OF A DISCONNECTED ERA
+                </div>
                 <div class="footer-social">
                     <img src="./assets/c85e52b7eba225b94c1f4e356cf532b2be033561.svg" alt="Social">
                     <img src="./assets/4c36a6bb75f8759996b5936b01f322f42f25cf61.svg" alt="Social">
@@ -234,26 +224,19 @@
             </div>
             <div class="footer-links">
                 <div class="link-col">
-                    <h4>COMPANY</h4>
-                    <ul>
-                        <li><a href="index.html#story">STORY</a></li>
-                        <li><a href="index.html#vision">VISION</a></li>
-                        <li><a href="#">PRESS</a></li>
-                    </ul>
+                    <h4 style="font-family:var(--font-silk); font-size:12px; margin-bottom:16px;">SUPPORT</h4>
+                    <a href="#" style="display:block; font-size:12px; color:var(--dark-text); text-decoration:none; margin-bottom:8px;">Q / A</a>
+                    <a href="#" style="display:block; font-size:12px; color:var(--dark-text); text-decoration:none; margin-bottom:8px;">GUIDE</a>
+                    <a href="#" style="display:block; font-size:12px; color:var(--dark-text); text-decoration:none;">PRESS</a>
                 </div>
                 <div class="link-col">
-                    <h4>LEGAL</h4>
-                    <ul>
-                        <li><a href="#">PRIVACY</a></li>
-                        <li><a href="#">TERMS</a></li>
-                    </ul>
+                    <h4 style="font-family:var(--font-silk); font-size:12px; margin-bottom:16px;">LEGAL</h4>
+                    <a href="#" style="display:block; font-size:12px; color:var(--dark-text); text-decoration:none; margin-bottom:8px;">PRIVACY</a>
+                    <a href="#" style="display:block; font-size:12px; color:var(--dark-text); text-decoration:none;">TERMS</a>
                 </div>
-                <div class="link-col newsletter">
-                    <h4>NEWSLETTER</h4>
-                    <div class="input-group">
-                        <input type="email" placeholder="EMAIL ADDRESS">
-                        <button>JOIN</button>
-                    </div>
+                <div class="link-col">
+                    <h4 style="font-family:var(--font-silk); font-size:12px; margin-bottom:16px;">NEWSLETTER</h4>
+                    <a href="#" style="font-size:12px; color:var(--primary-green); text-decoration:none; font-weight:bold;">EMAIL ADDRESS →</a>
                 </div>
             </div>
         </div>
