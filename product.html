@@ -6,7 +6,8 @@
     <title>SANDO - PRODUCT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Silkscreen:wght@400;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="product.css">
 </head>
@@ -110,13 +111,13 @@
 
         <!-- Solution Section -->
         <section class="prod-solution">
-            <div class="prod-solution-bg">
-                <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Forest Background">
-            </div>
             <div class="prod-solution-container">
                 <div class="s-header">
-                    <h2>SANDO<span>의 음악은</span><br><strong>팬들이 원하던 것</strong><span>을 그대로 담았습니다</span></h2>
-                    <p>우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
+                    <img class="s-header-img" src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Atmospheric scene">
+                    <div class="s-header-content">
+                        <h2>SANDO<span>의 음악은</span><br><strong>팬들이 원하던 것</strong><span>을 그대로 담았습니다</span></h2>
+                        <p>우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
+                    </div>
                 </div>
                 <div class="s-scatter-grid">
                     <div class="s-item s-discover">
@@ -158,8 +159,7 @@
         <!-- Scenario Section -->
         <section class="prod-scenario">
             <div class="prod-scenario-bg">
-                <img src="./assets/c4fcc49d529c900acb2fa9d8979faa7a58f330dd.png" class="sc-bg-1" alt="Girl smiling">
-                <img src="./assets/0ff1df46b4c678da892bcd18316c9ffc3228aff6.png" class="sc-bg-2" alt="Girl smiling overlay">
+                <img src="./assets/0ff1df46b4c678da892bcd18316c9ffc3228aff6.png" class="sc-bg-1" alt="Girl smiling in field">
             </div>
             <div class="prod-scenario-container">
                 <p class="sc-meta">Scenario</p>
@@ -170,13 +170,10 @@
                     </div>
                     <div class="sc-right">
                         <p><span>카세트 키링은 편의점</span> 갈 때 달고 갔다. 친구가 "그거 뭐야" 하고 물어온다. <span>SANDO</span> 얘기를 처음으로 꺼낸다. 엽서는 따로 보내지 않았다.<br>책상 위에 세워두는 것만으로 충분했다. 소장한다는 게 이런 건가 싶었다. 서랍에서 소장만 하지 않아도 되는 굿즈. 그게 바로 SAN:DO 다.</p>
+                    <div class="sc-floating-images">
+                        <img class="sc-new-float sc-float-left" src="./assets/e288413728afc5807b36749ba7845cc4da0400a6.png" alt="Cassette polaroid">
+                        <img class="sc-new-float sc-float-right" src="./assets/cce4955a53f3c4a8a4bebe2c39ea8c9e6795c6a2.png" alt="Girls polaroid">
                     </div>
-                </div>
-                <div class="sc-floating-images">
-                    <img class="sc-img img-1" src="./assets/99226b4a8e0f1d6fab371812a6b1d540692d76a8.png" alt="Floating 1">
-                    <img class="sc-img img-2" src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Floating 2">
-                    <img class="sc-img img-3" src="./assets/7b08612e9f0141479c3007f3ac379183df6f0e6b.png" alt="Floating 3">
-                    <img class="sc-img img-4" src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Floating 4">
                 </div>
             </div>
         </section>
@@ -198,11 +195,22 @@
                         <button class="btn-primary" style="background:transparent; border:1px solid #436900; color:#436900;">구매 안내서 보기 ↗</button>
                     </div>
                 </div>
-                
-                <div class="c-images">
-                    <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Camera 1">
-                    <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 2">
-                    <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape">
+            </div>
+        </section>
+        <section class="prod-marquee" style="width: 100%; overflow: hidden; padding-bottom: 60px; background: white;">
+            <div class="c-images-marquee" style="margin-top: 0;">
+                <div class="marquee-track">
+                    <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 1">
+                    <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape 1">
+                    <img src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Tape 2">
+                    <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" alt="Camera 2">
+                    <img src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Girl">
+                    <!-- Duplicate for infinite scroll -->
+                    <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 1">
+                    <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape 1">
+                    <img src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Tape 2">
+                    <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" alt="Camera 2">
+                    <img src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Girl">
                 </div>
             </div>
         </section>

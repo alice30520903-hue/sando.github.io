@@ -100,11 +100,12 @@
 /* 2. Problem Section */
 .prod-problem {
     background-color: #f9faee;
-    padding: 60px 60px;
+    padding: 120px 0;
 }
 
 .prod-problem-container {
     max-width: 1280px;
+    padding: 0 60px;
     margin: 0 auto;
 }
 
@@ -201,7 +202,7 @@
 /* 3. Features Section */
 .prod-features {
     position: relative;
-    padding: 60px;
+    padding: 120px 0;
     color: white;
 }
 
@@ -228,6 +229,7 @@
     position: relative;
     z-index: 1;
     max-width: 1280px;
+    padding: 0 60px;
     margin: 0 auto;
 }
 
@@ -309,32 +311,41 @@
 .prod-solution {
     position: relative;
     background: rgba(151, 196, 89, 0.2);
-    padding: 60px;
+    padding: 120px 0;
 }
 
 .prod-solution-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.prod-solution-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    mix-blend-mode: multiply;
-    opacity: 0.8;
+    display: none;
 }
 
 .prod-solution-container {
     position: relative;
     z-index: 1;
     max-width: 1280px;
+    padding: 0 60px;
     margin: 0 auto;
 }
 
 .s-header {
+    position: relative;
     margin-bottom: 60px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.s-header-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.s-header-content {
+    position: relative;
+    z-index: 1;
+    padding: 60px;
 }
 
 .s-header h2 {
@@ -412,8 +423,7 @@
 }
 
 /* Scattered Coordinates (from Figma) */
-.s-discover { left: 0; top: -14px; transform: rotate(-10.45deg); width: 320px; background: black; color: white; }
-.s-discover h3, .s-discover h4, .s-discover p { color: white; }
+.s-discover { left: 0; top: -14px; transform: rotate(-10.45deg); width: 320px; }
 
 .s-archive { left: 50%; top: -10px; transform: rotate(-6.03deg) translateX(-50%); width: 330px; }
 .s-explore { left: 20%; top: 224px; transform: rotate(9.62deg); width: 320px; z-index: 2; }
@@ -437,7 +447,8 @@
 /* 5. Scenario Section */
 .prod-scenario {
     position: relative;
-    padding: 80px 60px;
+    height: 835px;
+    padding: 60px 0;
     overflow: hidden;
 }
 
@@ -451,21 +462,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.sc-bg-2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    object-fit: bottom;
+    object-position: center 25%;
 }
 
 .prod-scenario-container {
     position: relative;
     z-index: 1;
     max-width: 1280px;
+    padding: 0 60px;
     margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .sc-meta {
@@ -480,13 +488,12 @@
 .sc-content-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 750px;
+    flex: 1;
 }
 
 .sc-left {
     align-self: flex-start;
     max-width: 540px;
-    margin-top: 50px;
 }
 
 .sc-left h2 {
@@ -527,27 +534,34 @@
     z-index: 2;
 }
 
-.sc-img {
+.sc-new-float {
     position: absolute;
     object-fit: contain;
 }
 
-/* Positioning based on Figma clusters */
-.img-1 { width: 263px; left: -2%; top: 40%; transform: rotate(12.62deg); }
-.img-2 { width: 211px; left: 3%; top: 45%; transform: rotate(12.62deg); }
-.img-3 { width: 315px; right: 5%; top: 10%; transform: rotate(-15.45deg); }
-.img-4 { width: 221px; right: 10%; top: 5%; transform: rotate(12.62deg); }
+.sc-float-left {
+    width: 343px;
+    left: 60px;
+    top: 55%;
+}
+
+.sc-float-right {
+    width: 463px;
+    right: 60px;
+    top: -10%;
+}
 
 /* 6. CTA & Package Section */
 .prod-cta {
     position: relative;
-    padding: 64px 60px 48px;
+    padding: 120px 0;
     background: white;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .prod-cta-container {
     max-width: 1280px;
+    padding: 0 60px;
     margin: 0 auto;
     position: relative;
 }
@@ -611,16 +625,27 @@
     letter-spacing: 1px;
 }
 
-.c-images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
+.c-images-marquee {
+    margin-top: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
 }
 
-.c-images img {
-    flex: 1;
-    height: 300px;
+.marquee-track {
+    display: inline-flex;
+    gap: 20px;
+    animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee-track img {
+    height: 250px;
+    width: auto;
     object-fit: cover;
-    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } /* -50% of the entire track minus half the gap */
 }
