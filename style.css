@@ -296,7 +296,7 @@ img {
 
 .blurred-city {
     position: absolute;
-    left: 323px;
+    right: 0;
     top: 0;
     width: 308px;
     height: 411px;
@@ -1083,5 +1083,82 @@ img {
     font-weight: 700;
     color: var(--primary-green);
     letter-spacing: -0.7px;
+}
+
+/* Responsiveness for Problem Section */
+@media (max-width: 1150px) {
+    .problem-content {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 60px;
+    }
+    .problem-text {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 40px;
+    }
+    .problem-title {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+    }
+    .problem-desc {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        text-align: center;
+    }
+    .problem-tape-1, .problem-tape-2 {
+        display: none;
+    }
+    .problem-image {
+        width: 100%;
+        max-width: 650px;
+        height: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .problem-container {
+        padding: 0 20px;
+    }
+    .problem-section {
+        padding: 80px 0;
+    }
+    .problem-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .problem-title {
+        font-size: 36px;
+    }
+    .problem-image {
+        height: 380px;
+    }
+    .vintage-tape {
+        width: 48%;
+        height: auto;
+        aspect-ratio: 0.75;
+        top: 60px;
+    }
+    .blurred-city {
+        width: 48%;
+        height: auto;
+        aspect-ratio: 0.75;
+    }
+    .problem-tape-4 {
+        width: 80px;
+        height: 28px;
+    }
 }
 

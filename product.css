@@ -181,10 +181,11 @@
 
 .p-polaroid img {
     position: absolute;
-    width: 150%;
+    width: 120%;
     height: auto;
     object-fit: contain;
-    left: -20%;
+    right: 0;
+    left: auto;
     z-index: 1;
 }
 
@@ -196,7 +197,7 @@
     transform: rotate(-6.54deg);
     z-index: 2;
     top: 50%;
-    left: 40%;
+    left: 30%;
 }
 
 /* 3. Features Section */
@@ -648,4 +649,53 @@
 @keyframes marquee-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 10px)); } /* -50% of the entire track minus half the gap */
+}
+
+/* Responsiveness for Product Problem Section */
+@media (max-width: 1024px) {
+    .p-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "left"
+            "right"
+            "tape";
+        gap: 30px;
+        min-height: auto;
+    }
+    .p-text-right {
+        margin-left: 0;
+        max-width: 348px;
+    }
+    .p-polaroid {
+        height: 500px;
+    }
+    .p-polaroid img {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .p-polaroid-text {
+        font-size: 80px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-6.54deg);
+        top: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .prod-problem-container {
+        padding: 0 20px;
+    }
+    .p-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .p-polaroid {
+        height: 380px;
+    }
+    .p-polaroid-text {
+        font-size: 60px;
+    }
 }
