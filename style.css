@@ -17,6 +17,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* offset for fixed header */
+    overflow-x: hidden;
 }
 
 body {
@@ -295,11 +296,7 @@ img {
 
 .blurred-city {
     position: absolute;
-<<<<<<< HEAD
-    left: 49.7%;
-=======
     right: 0;
->>>>>>> 21b9ce5eea368bd01899ab04b2259666e2d57d63
     top: 0;
     width: 47.4%;
     aspect-ratio: 308 / 411;
