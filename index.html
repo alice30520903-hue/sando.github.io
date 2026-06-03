@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,7 +34,7 @@
             <img src="./assets/0f5c1de73b6f6106150dd583d5f68030591062e5.png" alt="Misty summer forest" class="bg-img">
             <div class="hero-overlay"></div>
         </div>
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
             <p class="hero-subtitle">YOUTH MEMORY ARCHIVE</p>
             <div class="hero-logo-img">
                 <img src="./assets/543a6762f60950fe3e85e857b11b350e498f0f59.png" alt="Sando Logo">
@@ -60,14 +61,14 @@
     <!-- Problem Section (Lost Romance) -->
     <section class="problem-section" id="story">
         <div class="problem-container">
-            <div class="problem-header">
+            <div class="problem-header" data-aos="fade-up">
                 <div class="problem-label">LOST ROMANCE</div>
                 <div class="problem-message">
                     모든 것이 너무 빨라진 세상, 우리는 멈춰 서서 노래합니다
                 </div>
             </div>
             
-            <div class="problem-content">
+            <div class="problem-content" data-aos="fade-up" data-aos-delay="200">
                 <div class="problem-text">
                     <h2 class="problem-title">
                         <span>For the</span>
@@ -98,7 +99,7 @@
     <!-- Solution Section -->
     <section class="solution-section" id="vision">
         <div class="solution-container">
-            <div class="solution-text-area">
+            <div class="solution-text-area" data-aos="fade-right">
                 <h2 class="solution-title">PURE CARE BY<br>NATURE</h2>
                 <h3 class="solution-subtitle">SANDO의 음악은<br>'그때 그 여름'입니다.</h3>
                 <p class="solution-desc">우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
@@ -117,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="solution-image-area">
+            <div class="solution-image-area" data-aos="fade-left" data-aos-delay="200">
                 <img src="./assets/a1998b4b794c7599d2b72095bb6770d23785e22a.png" class="bg-layer" alt="Atmospheric scene bg">
                 <img src="./assets/832e53be523e7d4ea4e3a0793f0cc40cba4c13b6.png" class="fg-layer" alt="Atmospheric scene fg">
             </div>
@@ -126,7 +127,7 @@
 
     <!-- Features Section -->
     <section class="features-section" id="artists">
-        <div class="features-header">
+        <div class="features-header" data-aos="fade-up">
             <div class="features-title-box">
                 <span class="features-label">CORE VALUES</span>
                 <h2 class="features-title">The Way We Hold<br>Summer</h2>
@@ -137,7 +138,7 @@
         </div>
         <div class="features-grid">
             <!-- Feature 1 -->
-            <div class="f-card">
+            <div class="f-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="f-image">
                     <img src="./assets/e9927815d4fb9daec7a06a3ceb56257102dcc003.png" alt="Romance">
                 </div>
@@ -149,7 +150,7 @@
                 </div>
             </div>
             <!-- Feature 2 -->
-            <div class="f-card">
+            <div class="f-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="f-image">
                     <img src="./assets/64b74095516912d52b2a844f96a6d5cdb28b08c1.png" alt="Memory">
                 </div>
@@ -161,7 +162,7 @@
                 </div>
             </div>
             <!-- Feature 3 -->
-            <div class="f-card">
+            <div class="f-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="f-image f-image-composed">
                     <img src="./assets/bccacb53f9e866a0380b4c31a956350ff87ee2e4.png" class="f-bg" alt="Bg">
                     <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" class="f-layer-1" alt="Layer 1">
@@ -184,7 +185,7 @@
             <div class="process-gradient"></div>
             <img src="./assets/7ef9ed72a96d6d3e3985c0e15170443ef552909d.png" alt="Process background">
         </div>
-        <div class="process-container">
+        <div class="process-container" data-aos="fade-up">
             <div class="process-box">
                 <h2 class="process-title">PROCESS</h2>
                 <div class="process-list">
@@ -233,7 +234,7 @@
             <div class="cta-meta bottom-left">
                 EST. 2024 / SANDO ENT. &reg;
             </div>
-            <div class="cta-content">
+            <div class="cta-content" data-aos="fade-up">
                 <div class="cta-text-group">
                     <p class="cta-title">함께 청춘을 노래할 분들을 기다립니다</p>
                     <p class="cta-desc">SANDO의 철학에 공감하는 아티스트, 작곡가, 크리에이터<br>여러분 언제든 편하게 연락주세요.</p>
@@ -283,5 +284,13 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50
+        });
+    </script>
 </body>
 </html>
