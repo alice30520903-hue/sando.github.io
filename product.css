@@ -233,6 +233,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     z-index: 1;
 }
 
@@ -240,6 +241,32 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+=======
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-polaroid img {
+    position: absolute;
+    width: 120%;
+    height: auto;
+    object-fit: contain;
+    right: 0;
+    left: auto;
+    z-index: 1;
+}
+
+.p-polaroid-text {
+    position: absolute;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 96px;
+    color: #223836;
+    transform: rotate(-6.54deg);
+    z-index: 2;
+    top: 50%;
+    left: 30%;
+>>>>>>> 21b9ce5eea368bd01899ab04b2259666e2d57d63
 }
 
 /* 3. Features Section */
@@ -713,4 +740,53 @@
 @keyframes marquee-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+/* Responsiveness for Product Problem Section */
+@media (max-width: 1024px) {
+    .p-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "left"
+            "right"
+            "tape";
+        gap: 30px;
+        min-height: auto;
+    }
+    .p-text-right {
+        margin-left: 0;
+        max-width: 348px;
+    }
+    .p-polaroid {
+        height: 500px;
+    }
+    .p-polaroid img {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    .p-polaroid-text {
+        font-size: 80px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-6.54deg);
+        top: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .prod-problem-container {
+        padding: 0 20px;
+    }
+    .p-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .p-polaroid {
+        height: 380px;
+    }
+    .p-polaroid-text {
+        font-size: 60px;
+    }
 }
