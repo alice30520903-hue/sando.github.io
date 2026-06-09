@@ -213,8 +213,8 @@ img {
 
 .problem-container {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
     position: relative;
 }
@@ -351,8 +351,8 @@ img {
 
 .solution-container {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -440,8 +440,8 @@ img {
 
 .features-header {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -475,8 +475,8 @@ img {
 
 .features-grid {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -566,8 +566,8 @@ img {
     position: relative;
     z-index: 2;
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
 }
 
@@ -672,11 +672,11 @@ img {
 
 .cta-container {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
+    max-width: 1600px;
     height: 100%;
     margin: 0 auto;
     position: relative;
-    padding: 0 60px;
+    padding: 0 40px;
     z-index: 3;
 }
 
@@ -775,8 +775,8 @@ img {
 
 .footer-container {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
