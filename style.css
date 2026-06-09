@@ -36,48 +36,62 @@ img {
 /* Header */
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%;
     height: 80px;
-    background: rgba(249, 250, 238, 0.9);
+    background: transparent;
     backdrop-filter: blur(2px);
+    z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 .header-container {
     width: 100%;
-    /* max-width: 1280px; removed for full width */
-    padding: 0 60px;
+    max-width: 1600px;
+    padding: 0 40px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
     font-family: var(--font-silk);
     font-size: 24px;
     font-weight: 700;
-    color: var(--primary-green);
-    letter-spacing: -1.2px;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 
 .nav-links {
     display: flex;
-    gap: 48px;
+    gap: 40px;
 }
 
 .nav-links a {
     text-decoration: none;
+    color: var(--white);
+    font-size: 16px;
     font-family: var(--font-silk);
-    font-size: 12px;
-    color: var(--dark-text);
+    text-transform: uppercase;
     letter-spacing: 1.2px;
+    transition: opacity 0.2s;
 }
 
+.nav-links a:hover, .nav-links a.active {
+    opacity: 0.7;
+}
+
+/* Light background variant for Team page */
+.header.light-theme .logo,
+.header.light-theme .nav-links a {
+    color: var(--black);
+}
+.header.light-theme {
+    background: rgba(249, 250, 238, 0.8);
+    backdrop-filter: blur(10px);
+}
 
 .btn-primary {
     background-color: var(--primary-green);
@@ -98,7 +112,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    padding-top: 80px;
     overflow: hidden;
 }
 
@@ -107,7 +121,7 @@ img {
     inset: 0;
 }
 
-.hero-bg .bg-img {
+.hero-bg .bg-img, .hero-bg video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -178,7 +192,7 @@ img {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Problem Section */
@@ -1187,5 +1201,36 @@ img {
         width: 80px;
         height: 28px;
     }
+}
+
+
+/* ==========================================================================
+   Full-page Scroll Snapping for Home Page
+   ========================================================================== */
+html.home-page {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body.home-page {
+    /* Removed overflow: hidden so native window scroll works for AOS */
+    margin: 0;
+}
+
+.scroll-container > section,
+.scroll-container > footer {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Specific section overrides for 100vh */
+.scroll-container .marquee-section {
+    height: auto;
+    scroll-snap-align: none;
 }
 

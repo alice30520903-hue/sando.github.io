@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 80px; /* Offset for fixed header */
+    padding-top: 80px; /* Offset for fixed header */
 }
 
 .prod-hero-bg {

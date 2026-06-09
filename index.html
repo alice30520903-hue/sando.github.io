@@ -1,295 +1,903 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="home-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANDO - Youth Memory Archive</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <title>SANDO - YOUTH MEMORY ARCHIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* CSS Parallax & One-page Scroll Styles */
+        html.home-page {
+            scroll-snap-type: none; /* JS will handle snap */
+        }
+        body.home-page {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #f9faee;
+            color: #fff;
+        }
+        
+        .fp-section {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        
+        .fp-100vh {
+            height: 100vh;
+            min-height: 800px;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Native Parallax */
+            z-index: 0;
+        }
+        
+        /* Figma Design Overrides for Problem Sections */
+        .figma-problem-section {
+            padding: 100px 40px 40px 40px; /* Reduced top padding to move text up */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .figma-problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.6) 100%);
+            z-index: 0;
+        }
+        
+        .fps-top, .fps-bottom {
+            z-index: 1;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .fps-bottom {
+            margin-top: auto;
+        }
+        
+        .fps-top {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .fps-title-left {
+            font-family: var(--font-silk);
+            font-size: 16px;
+            color: white;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .fps-title-right {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            max-width: 400px;
+            line-height: 1.4;
+            text-align: right;
+        }
+        
+        .align-left .fps-top, .align-left .fps-bottom {
+            align-items: flex-start;
+            text-align: left;
+        }
+        
+        .align-center .fps-top, .align-center .fps-bottom {
+            align-items: center;
+        }
+        .align-center .fps-top > *, .align-center .fps-bottom > * {
+            width: 505px;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        .align-right .fps-top, .align-right .fps-bottom {
+            align-items: flex-end;
+        }
+        .align-right .fps-top > *, .align-right .fps-bottom > * {
+            width: 505px;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        .fps-bottom {
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .fps-label {
+            font-family: var(--font-silk);
+            font-size: 24px;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .fps-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            color: white;
+            line-height: 1.5;
+            max-width: 505px;
+            white-space: pre-wrap;
+        }
+        
+        .features-section {
+            position: relative;
+            padding: 100px 40px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .features-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1.05); /* Crop out baked-in white margins */
+            z-index: -1;
+        }
+        
+        .features-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 0;
+        }
+        
+        .features-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .features-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 16px;
+            padding: 0;
+        }
+        .features-header .label {
+            font-family: var(--font-silk);
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-left: -2px; /* optical alignment */
+        }
+        .features-header .desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .features-title {
+            font-family: var(--font-silk);
+            font-size: clamp(60px, 11vw, 150px);
+            color: #FFFFD0;
+            line-height: 0.85;
+            margin-bottom: -50px;
+            letter-spacing: -2px;
+            margin-left: -6px; /* Silkscreen optical alignment */
+            position: relative;
+            z-index: 2;
+        }
+        
+        .fps-huge {
+            font-family: var(--font-silk);
+            font-size: clamp(40px, 6vw, 80px);
+            color: white;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-left: -4px; /* Silkscreen optical alignment */
+        }
+        
+        .features-cards {
+            display: flex;
+            gap: 24px;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .features-card {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            height: 55vh;
+            min-height: 400px;
+            position: relative;
+        }
+        .features-card:hover {
+            transform: translateY(-10px);
+        }
+        .features-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .features-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            pointer-events: none;
+        }
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 24px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .card-title {
+            font-family: var(--font-silk);
+            font-size: 24px;
+            color: #FFFFD0;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            margin-left: -2px;
+        }
+        .card-subtitle {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+        .card-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+
+        /* Process Sections */
+        .process-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 20vh;
+        }
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 0;
+        }
+        
+        /* Fixed Progress Bar container */
+        #fixed-progress-bar {
+            position: fixed;
+            bottom: 10%;
+            left: 0;
+            width: 100%;
+            z-index: 99999;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            box-sizing: border-box;
+            height: 24px;
+        }
+        #fixed-progress-bar.visible {
+            opacity: 1 !important;
+        }
+        .timeline-line {
+            position: absolute;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            width: 100%;
+            left: 0;
+            z-index: 0;
+        }
+        .timeline-progress {
+            position: absolute;
+            height: 2px;
+            background: #a9ff00;
+            width: 0%;
+            left: 0;
+            z-index: 1;
+            transition: width 0.8s ease;
+        }
+        .timeline-dots-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1280px;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.8);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        .timeline-dot.active {
+            background: #a9ff00;
+            box-shadow: 0 0 15px #a9ff00;
+        }
+        .timeline-dot.filled {
+            background: #a9ff00;
+        }
+        
+        .process-content {
+            position: relative;
+            z-index: 1;
+            padding-left: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            max-width: 500px;
+        }
+        .process-label {
+            font-family: var(--font-silk);
+            font-size: 12px;
+            letter-spacing: 6px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .process-huge {
+            font-family: var(--font-silk);
+            font-size: clamp(60px, 8vw, 120px);
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: #FFFFD0;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            margin-left: -4px; /* Silkscreen optical alignment */
+        }
+        .process-mid {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #FFFFD0;
+            text-align: left;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #fff;
+            color: #000;
+            padding: 60px 40px;
+            font-family: 'Pretendard', sans-serif;
+        }
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 360px;
+        }
+        .footer-copy {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            text-transform: uppercase;
+            font-family: var(--font-silk);
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social img {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .footer-right {
+            display: flex;
+            gap: 80px;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .footer-col-title {
+            font-family: var(--font-silk);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+        }
+        .footer-link {
+            font-size: 12px;
+            color: rgba(0,0,0,0.6);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-link:hover {
+            color: #000;
+        }
+        .newsletter-input {
+            display: flex;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding-bottom: 8px;
+            width: 150px;
+        }
+        .newsletter-input input {
+            border: none;
+            outline: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+        .newsletter-input button {
+            background: none;
+            border: none;
+            color: #436900;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .cta-btn {
+            position: absolute;
+            bottom: 48px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 0;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+        .cta-btn img {
+            width: 16px;
+            height: 16px;
+            transition: all 0.3s;
+        }
+        .cta-btn:hover {
+            border-bottom: 1px solid white;
+            padding-bottom: 4px;
+        }
+        .cta-btn:hover img {
+            transform: translateX(4px);
+        }
+    </style>
 </head>
-<body>
+<body class="home-page">
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo">SANDO</div>
+            <a href="index.html" class="logo">
+                <img src="./assets/f1b13951a0cc73b2ca8febee6d7815320dd03bef.png" alt="SANDO" style="height:29px; filter: brightness(0) invert(1);">
+            </a>
             <nav class="nav-links">
                 <a href="#story" class="active">STORY</a>
-                <a href="#vision">VISION</a>
-                <a href="#artists">ARTISTS</a>
+                <a href="#audition">AUDITION</a>
                 <a href="team.html">TEAM</a>
                 <a href="product.html">PRODUCT</a>
-                <a href="#process">PROCESS</a>
-                <a href="#contact">CONTACT</a>
             </nav>
-            <button class="btn-primary">AUDITION</button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg">
-            <img src="./assets/0f5c1de73b6f6106150dd583d5f68030591062e5.png" alt="Misty summer forest" class="bg-img">
-            <div class="hero-overlay"></div>
+    <!-- Fixed Vision Header -->
+    <div id="fixed-vision-wrapper" style="position: fixed; top: 100px; left: 0; width: 100%; padding: 0 40px; z-index: 10; pointer-events: none; box-sizing: border-box; opacity: 0; transition: opacity 0.5s ease;">
+        <div class="fps-top" style="margin: 0 auto; width: 100%; max-width: 1280px; display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="fps-title-left">OUR vision</div>
+            <div class="fps-title-right" id="fixed-vision-title">화려함 보다는 진심</div>
         </div>
-        <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
-            <p class="hero-subtitle">YOUTH MEMORY ARCHIVE</p>
-            <div class="hero-logo-img">
-                <img src="./assets/543a6762f60950fe3e85e857b11b350e498f0f59.png" alt="Sando Logo">
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- Marquee Section -->
-    <section class="marquee-section">
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <span class="marquee-text">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
-                <span class="marquee-star">*</span>
-                <span class="marquee-text">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
-                <span class="marquee-star">*</span>
-                <span class="marquee-text">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
-                <span class="marquee-star">*</span>
-                <span class="marquee-text">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
-                <span class="marquee-star">*</span>
+    <main class="scroll-container">
+        <!-- 1. Hero Section -->
+        <section class="fp-section fp-100vh hero-section">
+            <div class="hero-bg parallax-bg" style="background-color: #000;">
+                <video autoplay loop muted playsinline class="hero-video" style="opacity: 0.8;">
+                    <source src="./assets/메인영상.mp4" type="video/mp4">
+                </video>
             </div>
-        </div>
-    </section>
-
-    <!-- Problem Section (Lost Romance) -->
-    <section class="problem-section" id="story">
-        <div class="problem-container">
-            <div class="problem-header" data-aos="fade-up">
-                <div class="problem-label">LOST ROMANCE</div>
-                <div class="problem-message">
-                    모든 것이 너무 빨라진 세상, 우리는 멈춰 서서 노래합니다
+            <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative; z-index: 2; pointer-events: none;">
+                <p style="font-family: var(--font-silk); color: white; font-size: 12px; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 16px; margin-right: -3.6px;" data-aos="fade-down" data-aos-duration="1000">
+                    YOUTH MEMORY ARCHIVE
+                </p>
+                <div style="max-width: 500px; width: 35vw;" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+                    <img src="./assets/543a6762f60950fe3e85e857b11b350e498f0f59.png" alt="SANDO Logo" style="width: 100%; height: auto; object-fit: contain;">
                 </div>
+            </div>
+        </section>
+
+        <!-- 2. Marquee Separator -->
+        <section class="fp-section marquee-section" style="background-color: #789149;">
+            <div class="marquee-container" style="background-color: transparent;">
+                <div class="marquee-content">
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                </div>
+                <div class="marquee-content">
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                </div>
+                <div class="marquee-content">
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                </div>
+                <div class="marquee-content">
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                    <span class="marquee-text" style="font-family: var(--font-silk); font-weight: bold; color: white;">WHERE YOUTH PAUSES, SUMMER BEGINS.</span>
+                    <span class="marquee-star" style="color: white;">*</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OUR STORY -->
+        <section class="fp-section fp-100vh figma-problem-section align-left" id="story">
+            <div class="parallax-bg" style="background-image: url('./assets/0773b9228c16deabe9b06d7a225da792a33a8c28.png');"></div>
+            <div class="fps-top" data-aos="fade-down">
+                <div class="fps-title-left"></div>
+                <div class="fps-title-right">모든 것이 너무 빨라진 세상, 우리는 멈춰 서서 노래합니다</div>
+            </div>
+            <div class="fps-bottom">
+                <div class="fps-label" data-aos="fade-right">OUR SToRY</div>
+                <div class="fps-desc" data-aos="fade-up" data-aos-delay="200">오늘의 음악은 내일이면 잊혀지고, 눈부신 화려함 속에 감춰진 진심을 찾기 어려워졌습니다. 우리는 기술의 정점에서 오히려 가장 인간다운 아날로그적 감수성을 그리워합니다.</div>
+                <div class="fps-huge" data-aos="fade-up" data-aos-delay="400">For the<br>vanishing age<br>of romance</div>
+            </div>
+        </section>
+
+        <!-- 4. OUR VISION - SINCERITY -->
+        <section class="fp-section fp-100vh figma-problem-section align-left" id="vision-1">
+            <div class="parallax-bg" style="background-image: url('./assets/daisy.png');"></div>
+            <div class="fps-bottom">
+                <div class="fps-desc" data-aos="fade-up" data-aos-delay="200">수많은 콘텐츠가 쏟아지는 시대.<br>산도는 순간적인 관심보다 오래 남는 진심을 믿습니다.<br>우리는 꾸며낸 메시지보다 사람의 이야기에 귀 기울이며,<br>아티스트가 가진 고유한 감정과 가치를 온전히 전달하는 데 몰두합니다.</div>
+                <div class="fps-huge" data-aos="fade-up" data-aos-delay="400">SINCERITY</div>
+            </div>
+        </section>
+
+        <!-- 5. OUR VISION - CONNECTION -->
+        <section class="fp-section fp-100vh figma-problem-section align-center" id="vision-2">
+            <div class="parallax-bg" style="background-image: url('./assets/f631edb53bdd7a27237a1803ee45338c99ec62ea.png');"></div>
+            <div class="fps-bottom">
+                <div class="fps-desc" data-aos="fade-up" data-aos-delay="200">단순히 한 번 듣고 넘기는 음악이 아니라,<br>팬과 아티스트가 함께 교감하며 성장하는 문화를 만듭니다.<br>우리는 서로가 서로에게 영감이 되는 끈끈한 연결을 지향합니다.</div>
+                <div class="fps-huge" data-aos="fade-up" data-aos-delay="400">CONNECTION</div>
+            </div>
+        </section>
+
+        <!-- 6. OUR VISION - MEMORY -->
+        <section class="fp-section fp-100vh figma-problem-section align-right" id="vision-3">
+            <div class="parallax-bg" style="background-image: url('./assets/polaroid.png');"></div>
+            <div class="fps-bottom">
+                <div class="fps-desc" data-aos="fade-up" data-aos-delay="200">빠르게 소비되는 트렌드는 사라지지만<br>진심이 담긴 시간은 오래 기억됩니다.<br>산도는 음악과 콘텐츠를 통해 누군가의 깊은 감정을 기록합니다.<br>오늘의 순간이 내일의 추억이 되도록.</div>
+                <div class="fps-huge" data-aos="fade-up" data-aos-delay="400">MEMORY</div>
+            </div>
+        </section>
+
+        <!-- 7. Features -->
+        <section class="fp-section fp-100vh features-section" id="features">
+            <div class="features-bg" style="background-image: url('./assets/5ad0f90a86c00191deb81855192d933af8d1286d.png');"></div>
+            <div class="features-overlay"></div>
+            <div class="features-container">
+                <div class="features-header" data-aos="fade-up">
+                    <div class="label">FEATURES</div>
+                    <div class="desc">우리가 전하고자 하는 진심은</div>
+                </div>
+                <div class="features-title" data-aos="fade-right" data-aos-delay="100">PURE CARE<br>BY NATURE</div>
+                <div class="features-cards">
+                    <div class="features-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./assets/452143feaeb3fe1c92af6db4dbda4a4f2d5ba1f2.png" alt="Value 1">
+                        <div class="card-content">
+                            <div class="card-title">MEMORY<br>ARCHIVE</div>
+                            <div class="card-subtitle">기억을 기록하는 아카이브</div>
+                            <div class="card-desc">산도가 만드는 모든 콘텐츠를 단순히 보여주는<br>것이 아니라 기록한다.</div>
+                        </div>
+                    </div>
+                    <div class="features-card" data-aos="fade-up" data-aos-delay="400">
+                        <img src="./assets/147b370690d2a325e850018cba5e20ef5ef6c9c1.png" alt="Value 2">
+                        <div class="card-content">
+                            <div class="card-title">LETTER TO<br>SAN:DO</div>
+                            <div class="card-subtitle">진심을 남기는 공간</div>
+                            <div class="card-desc">산도는 아티스트에게 보내는 편지<br>문화를 만든다</div>
+                        </div>
+                    </div>
+                    <div class="features-card" data-aos="fade-up" data-aos-delay="600">
+                        <img src="./assets/eb248add6092349ed749a09a82cded8e3adc57aa.png" alt="Value 3">
+                        <div class="card-content">
+                            <div class="card-title">MOMENTS</div>
+                            <div class="card-subtitle">다 함께 만드는 순간</div>
+                            <div class="card-desc">팬들과의 연대를 보여준다</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PROCESS - FEEL -->
+        <section class="fp-section fp-100vh process-section" id="process-1">
+            <div class="parallax-bg" style="background-image: url('./assets/Process1.png');"></div>
+            <div class="process-content">
+                <div class="process-label" data-aos="fade-right">PROCESS</div>
+                <div class="process-huge" data-aos="fade-right" data-aos-delay="100">01<br>FEEL</div>
+                <div class="process-mid" data-aos="fade-up" data-aos-delay="200">
+                    <div style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">감정을 마주하다</div>
+                    <div>당신의 하루 속 감정과 순간을 발견합니다.<br>우리는 가장 사소한 감정에서 이야기가<br>시작된다고 믿습니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. PROCESS - CONNECT -->
+        <section class="fp-section fp-100vh process-section" id="process-2">
+            <div class="parallax-bg" style="background-image: url('./assets/Process2.png');"></div>
+            <div class="process-content">
+                <div class="process-label" data-aos="fade-right">PROCESS</div>
+                <div class="process-huge" data-aos="fade-right" data-aos-delay="100">02<br>CONNECT</div>
+                <div class="process-mid" data-aos="fade-up" data-aos-delay="200">
+                    <div style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">이야기와 연결되다</div>
+                    <div>음악과 아티스트의 진심을 통해<br>자신만의 경험과 감정을 연결합니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. PROCESS - REMEMBER -->
+        <section class="fp-section fp-100vh process-section" id="process-3">
+            <div class="parallax-bg" style="background-image: url('./assets/Prossses3.png');"></div>
+            <div class="process-content">
+                <div class="process-label" data-aos="fade-right">PROCESS</div>
+                <div class="process-huge" data-aos="fade-right" data-aos-delay="100">03<br>REMEMBER</div>
+                <div class="process-mid" data-aos="fade-up" data-aos-delay="200">
+                    <div style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">기억으로 남다</div>
+                    <div>순간의 소비를 넘어<br>오래도록 함께하는 기억이 됩니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. CTA Section -->
+        <section class="fp-section fp-100vh cta-section" id="audition">
+            <div class="cta-bg parallax-bg" style="background-image: url('./assets/6e94ce756b3616237158fdd853f3e3c4231faa94.png');"></div>
+            
+            <div class="cta-text-bg" style="position: absolute; top: 38%; left: 0; width: 100%; transform: translateY(-50%); padding: 0; font-family: var(--font-silk); font-size: clamp(120px, 22vw, 350px); color: rgba(255,254,234,0.9); text-align: center; line-height: 0.8; z-index: 1; pointer-events: none; margin-left: -1vw;">
+                NEW<br>CHAPTER
             </div>
             
-            <div class="problem-content" data-aos="fade-up" data-aos-delay="200">
-                <div class="problem-text">
-                    <h2 class="problem-title">
-                        <span>For the</span>
-                        <span>vanishing age</span>
-                        <span>of romance</span>
-                    </h2>
-                    <p class="problem-desc">
-                        오늘의 음악은 내일이면 잊혀지고, 눈부신 화려함 속에 감춰진 진심을 찾기 어려워졌습니다. 우리는 기술의 정점에서 오히려 가장 인간다운 아날로그적 감수성을 그리워합니다.
-                    </p>
-                    <div class="problem-tape-1"></div>
-                    <div class="problem-tape-2"></div>
+            <div class="cta-girl" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; height: 100vh; z-index: 2; pointer-events: none;">
+                <img src="./assets/c831f95cf5d1685432e6d17a216c6da264324fe8.png" alt="Girl" style="height: 100%; width: auto; object-fit: contain;">
+            </div>
+            
+            <div class="cta-container" style="position: relative; z-index: 3; pointer-events: none; margin: 0 auto; width: 100%; max-width: 1600px; height: 100%; padding: 0;">
+                <div class="cta-meta top-left" style="position: absolute; top: 120px; left: 40px; font-family: var(--font-silk); font-size: 10px; color: #436900; letter-spacing: 4px;">
+                    NEXT PHASE / 003
+                    <div class="line" style="width: 48px; height: 1px; background-color: rgba(67,105,0,0.3); margin-top: 8px;"></div>
                 </div>
 
-                <div class="problem-image">
-                    <div class="vintage-tape">
-                        <img src="./assets/e24b43c8723f03f35e2521874c37699974aeeafe.png" alt="Vintage polaroids">
+                <div class="cta-content" style="position: absolute; bottom: 48px; left: 40px; right: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div class="cta-text-group" style="max-width: 320px;">
+                        <div class="cta-title" style="color: #fff; font-weight: bold; font-size: 16px; margin-bottom: 12px;">함께 청춘을 노래할 분들을 기다립니다</div>
+                        <div class="cta-desc" style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.5;">SANDO의 철학에 공감하는 아티스트, 작곡가, 크리에이터라면 언제든 우리와 함께 새로운 여름을 시작하세요.</div>
                     </div>
-                    <div class="problem-tape-3"></div>
-                    <div class="problem-tape-4"></div>
-                    <div class="blurred-city">
-                        <img src="./assets/64b74095516912d52b2a844f96a6d5cdb28b08c1.png" alt="Blurred city lights">
+                    
+                    <div class="btn-apply" style="pointer-events: auto; padding: 12px 24px; border-radius: 0;">
+                        <span style="font-family: var(--font-silk); font-size: 14px; letter-spacing: 2px;">APPLY</span>
+                        <img src="./assets/61a35f6481a9813a54b1b77d275d8791fe1ab130.svg" alt="Arrow">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solution Section -->
-    <section class="solution-section" id="vision">
-        <div class="solution-container">
-            <div class="solution-text-area" data-aos="fade-right">
-                <h2 class="solution-title">PURE CARE BY<br>NATURE</h2>
-                <h3 class="solution-subtitle">SANDO의 음악은<br>'그때 그 여름'입니다.</h3>
-                <p class="solution-desc">우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
-                <div class="solution-cards">
-                    <div class="s-card">
-                        <img src="./assets/1b1a3c193a6a784414909e6ac9da2f89bd94ce98.svg" class="s-icon" alt="icon">
-                        <span>ORGANIC<br>SOUND</span>
-                    </div>
-                    <div class="s-card">
-                        <img src="./assets/8c307c8a01fc5ef167cf5630963fd55ac23b0d27.svg" class="s-icon" alt="icon">
-                        <span>TIMELESS<br>STORY</span>
-                    </div>
-                    <div class="s-card">
-                        <img src="./assets/0c78babbbfea43878b2620aeaf184cce60c2abfd.svg" class="s-icon" alt="icon">
-                        <span>PURE<br>EMOTION</span>
+        <!-- 12. Footer -->
+        <footer class="fp-section site-footer" style="height: auto; min-height: auto;">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="./assets/f1b13951a0cc73b2ca8febee6d7815320dd03bef.png" alt="SANDO" style="height: 24px; object-fit: contain; width: max-content; filter: invert(0) brightness(0.2);">
+                    <div class="footer-copy">© 2026 SANDO ENTERTAINMENT.<br>RECORDED IN THE SHADE OF A MIDSUMMER TREE.</div>
+                    <div class="footer-social">
+                        <img src="./assets/4c36a6bb75f8759996b5936b01f322f42f25cf61.svg" alt="Social">
+                        <img src="./assets/c85e52b7eba225b94c1f4e356cf532b2be033561.svg" alt="Social">
                     </div>
                 </div>
-            </div>
-            <div class="solution-image-area" data-aos="fade-left" data-aos-delay="200">
-                <img src="./assets/a1998b4b794c7599d2b72095bb6770d23785e22a.png" class="bg-layer" alt="Atmospheric scene bg">
-                <img src="./assets/832e53be523e7d4ea4e3a0793f0cc40cba4c13b6.png" class="fg-layer" alt="Atmospheric scene fg">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section" id="artists">
-        <div class="features-header" data-aos="fade-up">
-            <div class="features-title-box">
-                <span class="features-label">CORE VALUES</span>
-                <h2 class="features-title">The Way We Hold<br>Summer</h2>
-            </div>
-            <div class="features-desc-box">
-                <p>SANDO는 단순한 엔터테인먼트를 넘어 시대를 관통하는 감수성의 아카이브를 지향합니다.</p>
-            </div>
-        </div>
-        <div class="features-grid">
-            <!-- Feature 1 -->
-            <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="f-image">
-                    <img src="./assets/e9927815d4fb9daec7a06a3ceb56257102dcc003.png" alt="Romance">
-                </div>
-                <h3 class="f-title">ROMANCE</h3>
-                <p class="f-desc">일상의 평범한 순간조차 한 편의 영화처럼 느껴지게 만드는 힘. 우리는 당신의 모든 순간에 숨겨진 낭만을 찾아 음악에 담습니다.</p>
-                <div class="f-tags">
-                    <span>#VIBE</span>
-                    <span>#CINEMATIC</span>
-                </div>
-            </div>
-            <!-- Feature 2 -->
-            <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="f-image">
-                    <img src="./assets/64b74095516912d52b2a844f96a6d5cdb28b08c1.png" alt="Memory">
-                </div>
-                <h3 class="f-title">MEMORY</h3>
-                <p class="f-desc">흘러간 시간은 돌아오지 않지만, 그 향기와 온도만은 소리로 남길 수 있습니다. 훗날 다시 꺼내 보아도 바래지 않을 기억의 노래를 만듭니다.</p>
-                <div class="f-tags">
-                    <span>#ANALOG</span>
-                    <span>#NOSTALGIA</span>
-                </div>
-            </div>
-            <!-- Feature 3 -->
-            <div class="f-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="f-image f-image-composed">
-                    <img src="./assets/bccacb53f9e866a0380b4c31a956350ff87ee2e4.png" class="f-bg" alt="Bg">
-                    <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" class="f-layer-1" alt="Layer 1">
-                    <div class="f-overlay"></div>
-                    <img src="./assets/ef31bad190a491a6a786ef14206c47665f502998.png" class="f-layer-2" alt="Sincerity">
-                </div>
-                <h3 class="f-title">SINCERITY</h3>
-                <p class="f-desc">화려한 미사여구보다 투박해도 따뜻한 한마디를 믿습니다. 아티스트와 팬 사이의 보이지 않는 마음의 끈을 소중히 여깁니다.</p>
-                <div class="f-tags">
-                    <span>#ACOUSTIC</span>
-                    <span>#HEARTFELT</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="process-section" id="process">
-        <div class="process-bg">
-            <div class="process-gradient"></div>
-            <img src="./assets/7ef9ed72a96d6d3e3985c0e15170443ef552909d.png" alt="Process background">
-        </div>
-        <div class="process-container" data-aos="fade-up">
-            <div class="process-box">
-                <h2 class="process-title">PROCESS</h2>
-                <div class="process-list">
-                    <div class="p-item">
-                        <div class="p-num">01</div>
-                        <div class="p-text">
-                            <h4>Feeling Archive</h4>
-                            <p>계절의 변화, 바람의 온도 등 일상의 작은 조각들을 기록합니다.</p>
-                        </div>
+                
+                <div class="footer-right">
+                    <div class="footer-col">
+                        <div class="footer-col-title">COMPANY</div>
+                        <a href="#" class="footer-link">STORY</a>
+                        <a href="#" class="footer-link">VISION</a>
+                        <a href="#" class="footer-link">PRESS</a>
                     </div>
-                    <div class="p-item">
-                        <div class="p-num">02</div>
-                        <div class="p-text">
-                            <h4>Organic Composing</h4>
-                            <p>이야기의 흐름을 따르는 유기적인 멜로디와 질감을 직조합니다.</p>
-                        </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">LEGAL</div>
+                        <a href="#" class="footer-link">PRIVACY</a>
+                        <a href="#" class="footer-link">TERMS</a>
                     </div>
-                    <div class="p-item">
-                        <div class="p-num">03</div>
-                        <div class="p-text">
-                            <h4>Permanent Memory</h4>
-                            <p>완성된 음악은 리스너의 삶 속에 영원히 머무는 배경음악이 됩니다.</p>
+                    <div class="footer-col">
+                        <div class="footer-col-title">NEWSLETTER</div>
+                        <div class="newsletter-input">
+                            <input type="text" placeholder="EMAIL ADDRESS">
+                            <button>JOIN</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </footer>
+        <!-- Fixed Progress Bar for Process Sections -->
+        <div id="fixed-progress-bar">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress"></div>
+            <div class="timeline-dots-container">
+                <div class="timeline-dot active"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-dot"></div>
+            </div>
         </div>
-    </section>
+    </main>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-bg">
-            <img src="./assets/d70162f4ccf74020ca577e99d042560b6c8e5a33.png" alt="CTA background">
-        </div>
-        <div class="cta-text-bg">
-            NEW<br>CHAPTER
-        </div>
-        <div class="cta-girl">
-            <img src="./assets/c831f95cf5d1685432e6d17a216c6da264324fe8.png" alt="Girl looking at sky">
-        </div>
-        <div class="cta-container">
-            <div class="cta-meta top-left">
-                <span>NEXT PHASE / 003</span>
-                <div class="line"></div>
-            </div>
-            <div class="cta-meta bottom-left">
-                EST. 2024 / SANDO ENT. &reg;
-            </div>
-            <div class="cta-content" data-aos="fade-up">
-                <div class="cta-text-group">
-                    <p class="cta-title">함께 청춘을 노래할 분들을 기다립니다</p>
-                    <p class="cta-desc">SANDO의 철학에 공감하는 아티스트, 작곡가, 크리에이터<br>여러분 언제든 편하게 연락주세요.</p>
-                </div>
-                <button class="btn-apply">
-                    <span>AUDITION APPLY</span>
-                    <img src="./assets/4c36a6bb75f8759996b5936b01f322f42f25cf61.svg" alt="arrow">
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-left">
-                <div class="footer-logo">SANDO</div>
-                <p class="footer-copyright">&copy; 2024 SANDO ENTERTAINMENT.<br>RECORDED IN THE SHADE OF A MIDSUMMER TREE.</p>
-                <div class="footer-social">
-                    <img src="./assets/c85e52b7eba225b94c1f4e356cf532b2be033561.svg" alt="Social">
-                    <img src="./assets/4c36a6bb75f8759996b5936b01f322f42f25cf61.svg" alt="Social">
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="link-col">
-                    <h4>COMPANY</h4>
-                    <ul>
-                        <li><a href="#story">STORY</a></li>
-                        <li><a href="#vision">VISION</a></li>
-                        <li><a href="#">PRESS</a></li>
-                    </ul>
-                </div>
-                <div class="link-col">
-                    <h4>LEGAL</h4>
-                    <ul>
-                        <li><a href="#">PRIVACY</a></li>
-                        <li><a href="#">TERMS</a></li>
-                    </ul>
-                </div>
-                <div class="link-col newsletter">
-                    <h4>NEWSLETTER</h4>
-                    <div class="input-group">
-                        <input type="email" placeholder="EMAIL ADDRESS">
-                        <button>JOIN</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
-            once: true,
-            offset: 50
+            once: false,
+            mirror: true
+        });
+
+        // Parallax One-Page Scroll Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = Array.from(document.querySelectorAll('.fp-section'));
+            let currentSectionIndex = 0;
+            let isScrolling = false;
+            
+            // Progress Bar Logic
+            const processSections = [7, 8, 9]; // indices for Process 1, 2, 3
+            const progressBar = document.getElementById('fixed-progress-bar');
+            const progressDots = progressBar.querySelectorAll('.timeline-dot');
+            const progressFill = progressBar.querySelector('.timeline-progress');
+
+            function updateProgressBar(index) {
+                if (processSections.includes(index)) {
+                    progressBar.classList.add('visible');
+                    const step = index - processSections[0]; // 0, 1, 2
+                    
+                    progressDots.forEach((dot, i) => {
+                        dot.classList.remove('active', 'filled');
+                        if (i < step) dot.classList.add('filled');
+                        else if (i === step) dot.classList.add('active');
+                    });
+                    
+                    // Width calculation based on dot position
+                    const activeDot = progressDots[step];
+                    const dotRect = activeDot.getBoundingClientRect();
+                    progressFill.style.width = (dotRect.left + dotRect.width / 2) + 'px';
+                } else {
+                    progressBar.classList.remove('visible');
+                }
+            }
+            
+            // Fixed Vision Header Logic
+            const visionSections = [3, 4, 5]; // indices for Vision 1, 2, 3
+            const fixedVisionWrapper = document.getElementById('fixed-vision-wrapper');
+            const fixedVisionTitle = document.getElementById('fixed-vision-title');
+            
+            const visionTitles = {
+                3: '화려함 보다는 진심',
+                4: '소비보다 관계',
+                5: '순간보다 기억'
+            };
+
+            function updateFixedVision(index) {
+                if (visionSections.includes(index)) {
+                    fixedVisionWrapper.style.opacity = '1';
+                    fixedVisionTitle.textContent = visionTitles[index];
+                } else {
+                    fixedVisionWrapper.style.opacity = '0';
+                }
+            }
+
+            // Init based on scroll position using Intersection Observer for robustness
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = sections.indexOf(entry.target);
+                        currentSectionIndex = index;
+                        updateProgressBar(index);
+                        updateFixedVision(index);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+
+            sections.forEach(sec => observer.observe(sec));
+
+            window.addEventListener('wheel', (e) => {
+                if (isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+
+                const delta = Math.sign(e.deltaY);
+                let nextIndex = currentSectionIndex + delta;
+
+                // Handle boundaries
+                if (nextIndex >= 0 && nextIndex < sections.length) {
+                    e.preventDefault();
+                    isScrolling = true;
+                    
+                    const targetSection = sections[nextIndex];
+                    window.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+
+                    // Cooldown to prevent multiple scrolls
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000); 
+                }
+            }, { passive: false });
+            window.addEventListener('resize', () => {
+                updateProgressBar(currentSectionIndex);
+            });
         });
     </script>
 </body>
