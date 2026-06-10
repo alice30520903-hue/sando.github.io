@@ -58,31 +58,27 @@
                 
                 <!-- CSS Grid Layout -->
                 <div class="p-grid">
-                    <!-- Glitch SVG Background -->
-                    <div class="p-glitch-bg">
-                        <img src="./assets/6124748a40c16284e0c6af9b0e1dd1a35c80a99c.svg" alt="">
-                    </div>
-                    
-                    <!-- Pixel Font Title -->
-                    <div class="p-title" data-aos="fade-right" data-aos-delay="200">
-                        <h2>EVERY SUMMER FADES. SO DOES<br>THE MERCH.</h2>
-                    </div>
 
-                    <!-- Absolute positioned texts -->
-                    <div class="p-texts" data-aos="fade-up" data-aos-delay="400">
-                        <div class="p-text-1">
-                            <p>좋아하는 아티스트의 굿즈인데 막상 받고 나면 어디 두어야 할지 모르겠습니다. 로고가 너무 크거나, 색이 생각보다 싸 보이거나, 결국 한 번 꺼내보고 다시 넣게 되는 물건.</p>
+                    <div class="p-left">
+                        <!-- Pixel Font Title -->
+                        <div class="p-title" data-aos="fade-right" data-aos-delay="200">
+                            <h2>EVERY SUMMER<br>FADES. SO DOES<br>THE MERCH.</h2>
                         </div>
-                        <div class="p-text-2">
-                            <p>SAN:DO는 그 문제에서 출발했습니다. 책상 위에 두고 싶은 것. 가방에 달고 싶은 것. 사진에 자연스럽게 담기는 것. <strong>굿즈가 아니라 오브제.</strong></p>
+
+                        <!-- Texts -->
+                        <div class="p-texts" data-aos="fade-up" data-aos-delay="400">
+                            <div class="p-text-1">
+                                <p>좋아하는 아티스트의 굿즈인데 막상 받고 나면 어디 두어야 할지 모르겠습니다. 로고가 너무 크거나, 색이 생각보다 싸 보이거나, 결국 한 번 꺼내보고 다시 넣게 되는 물건.</p>
+                            </div>
+                            <div class="p-text-2">
+                                <p>SAN:DO는 그 문제에서 출발했습니다. 책상 위에 두고 싶은 것. 가방에 달고 싶은 것. 사진에 자연스럽게 담기는 것. <strong>굿즈가 아니라 오브제.</strong></p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Polaroid with handwritten text -->
-                    <div class="p-polaroid-wrapper">
-                        <!-- Main Polaroid image -->
-                        <div class="p-polaroid-img">
-                            <img src="./assets/572dac99bd306c57d9c5802b8e24c16a828185d7.png" alt="Polaroid photos">
+                    <div class="p-right">
+                        <div class="p-polaroid-img" data-aos="fade-left" data-aos-delay="600">
+                            <img src="./assets/polaroid.png" alt="Polaroid">
                         </div>
                     </div>
                 </div>
@@ -130,16 +126,21 @@
             </div>
         </section>
 
-        <!-- Solution Section -->
+        <!-- Product Solution Section -->
         <section class="prod-solution">
+            <!-- Full section background -->
+            <div class="s-bg-wrapper">
+                <img src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" class="s-bg-img" alt="Atmospheric scene">
+                <div class="s-bg-overlay"></div>
+            </div>
+
             <div class="prod-solution-container">
-                <div class="s-header">
-                    <img class="s-header-img" src="./assets/3e3a604d1bd790d6f71a1aa79a312eb55eeb90b3.png" alt="Atmospheric scene" data-aos="fade-up">
-                    <div class="s-header-content" data-aos="fade-up">
-                        <h2>SANDO<span>의 음악은</span><br><strong>팬들이 원하던 것</strong><span>을 그대로 담았습니다</span></h2>
-                        <p>우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
-                    </div>
+                <!-- Text Area -->
+                <div class="s-header-text" data-aos="fade-up">
+                    <h2>SANDO<span class="s-font-light">의 음악은</span><br><strong>팬들이 원하던 것</strong><span class="s-font-light">을 그대로 담았습니다</span></h2>
+                    <p>우리는 자극적인 훅보다 마음을 울리는 멜로디를, 화려한 조명보다 나뭇잎 사이로 부서지는 햇살 같은 조명을 노래합니다. SANDO는 영원히 마르지 않을 청춘의 한 페이지를 당신에게 선물합니다.</p>
                 </div>
+
                 <div class="s-scatter-grid">
                     <div class="s-item s-discover">
                         <img src="./assets/ff30c8f0ad429ba9806da89dfd8c26ec9ca79576.png" class="s-border-bg" alt="Border">
@@ -227,13 +228,11 @@
                     <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 1">
                     <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape 1">
                     <img src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Tape 2">
-                    <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" alt="Camera 2">
                     <img src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Girl">
                     <!-- Duplicate for infinite scroll -->
                     <img src="./assets/659dbe9e403d3c29e346c2e5e92b3bb9619fe875.png" alt="Camera 1">
                     <img src="./assets/0651afc535155f71f9658d27788e2fa9156295b1.png" alt="Tape 1">
                     <img src="./assets/63467bdc56bd4790c4f66187277db30922817a37.png" alt="Tape 2">
-                    <img src="./assets/c326b71dd088b9d7db8285b4ead1c779285d6bfa.png" alt="Camera 2">
                     <img src="./assets/75484bb5bf83f4497d686b1134157f14a152d9fc.png" alt="Girl">
                 </div>
             </div>
@@ -279,7 +278,71 @@
         AOS.init({
             duration: 1000,
             once: true,
-            offset: 50
+            offset: 100
+        });
+
+        // Draggable Memos Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll('.s-item');
+            let activeItem = null;
+            let initialX;
+            let initialY;
+            let highestZIndex = 10;
+
+            items.forEach(item => {
+                item._currentX = 0;
+                item._currentY = 0;
+                item.addEventListener('mousedown', dragStart);
+                item.addEventListener('touchstart', dragStart, {passive: false});
+            });
+
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('touchend', dragEnd);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('touchmove', drag, {passive: false});
+
+            function dragStart(e) {
+                if (e.target.closest('.s-item')) {
+                    activeItem = e.target.closest('.s-item');
+                    highestZIndex++;
+                    activeItem.style.zIndex = highestZIndex;
+                    activeItem.style.transition = 'box-shadow 0.2s ease, transform 0s';
+
+                    if (e.type === "touchstart") {
+                        initialX = e.touches[0].clientX - activeItem._currentX;
+                        initialY = e.touches[0].clientY - activeItem._currentY;
+                    } else {
+                        initialX = e.clientX - activeItem._currentX;
+                        initialY = e.clientY - activeItem._currentY;
+                    }
+                }
+            }
+
+            function dragEnd(e) {
+                if (activeItem) {
+                    activeItem.style.transition = 'box-shadow 0.2s ease, transform 0.1s ease-out';
+                    initialX = activeItem._currentX;
+                    initialY = activeItem._currentY;
+                    activeItem = null;
+                }
+            }
+
+            function drag(e) {
+                if (activeItem) {
+                    if (e.cancelable) e.preventDefault();
+                
+                    if (e.type === "touchmove") {
+                        activeItem._currentX = e.touches[0].clientX - initialX;
+                        activeItem._currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        activeItem._currentX = e.clientX - initialX;
+                        activeItem._currentY = e.clientY - initialY;
+                    }
+
+                    activeItem.style.setProperty('--tx', `${activeItem._currentX}px`);
+                    activeItem.style.setProperty('--ty', `${activeItem._currentY}px`);
+                }
+            }
         });
     </script>
 </body>
